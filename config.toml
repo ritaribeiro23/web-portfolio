@@ -1,17 +1,20 @@
 baseURL = "https://example.com/"
 languageCode = "en-us"
-title = "Edna West"
+title = "Rita E. Ribeiro"
 theme = "personal-web"
-copyright="© Edna West"
+copyright=""
 googleAnalytics = ""
 enableEmoji=true
 enableRobotsTXT=true
 pygmentsUseClasses=true
 pygmentsCodeFences=true
 
+[markup.goldmark.renderer]
+unsafe= true
+
 [params.intro]
-  main = "Hi, I'm Edna :wave:"
-  sub = "I'm a Web Developer and Entrepreneur"
+  main = "Rita Ribeiro"
+  sub = "Data Science | Advanced Analytics"
 
 [taxonomies]
   design = "designs"
@@ -23,66 +26,75 @@ pygmentsCodeFences=true
 [params]
   breadcrumb = true
   accentColor = "#FD3519"
-  mainSections = ['portfolio'] # values: ['post', 'portfolio'] only accept one section, to be displayed bellow 404
+  mainSections = ['about'] # values: ['post', 'portfolio'] only accept one section, to be displayed bellow 404
 
 [params.notFound]
   gopher = "/images/gopher.png" # checkout https://gopherize.me/
-  h1 = 'Bummer!'
-  p = "It seems that this page doesn't exist."
+  h1 = "Sorry!"
+  p = "It seems that the page you're looking for doesn't exist."
 
 [params.sections]
   # Define how your sections will be called
   # when automatically pulled. For instance in the 404 page
-  post = "article"
-  portfolio = "project"
+  post = "post"
+  portfolio = "portfolio"
+  skills = "skills"
 
 [params.sidebar]
-  backgroundImage = '' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
+  backgroundImage = '/images/ribeira.jpg' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = '' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
-  logo = "" # - default "/images/edna-west.jpg"
+  logo = '/images/r_cv_photo.jpg' # - default "/images/edna-west.jpg"
 [params.assets]
   favicon = ""
   customCSS = ""
 
 [params.social]
-  github = "https://github.com/"
-  twitter = "https://twitter.com/"
-  linkedin = "https://www.linkedin.com/in/"
-  medium = "https://medium.com/"
-  codepen = "https://codepen.io/"
-  facebook = "https://www.facebook.com/"
-  youtube = "https://www.youtube.com/"
-  instagram = "https://www.instagram.com/"
-  gitlab = "https://gitlab.com/"
-  keybase = "https://keybase.io/"
+  github = "https://github.com/ritaribeiro23"
+  #twitter = "https://twitter.com/"
+  linkedin = "www.linkedin.com/in/rita-e-ribeiro"
+  #medium = "https://medium.com/"
 
 [params.contact]
-  email = ""
-  text= "" # text of the contact link in the sidebar. If email params.contact.email is defined
+  email = "ritaribeiro23@gmail.com"
+  text= "Contact" # text of the contact link in the sidebar. If email params.contact.email is defined
 
 
 [menu]
 
 [[menu.main]]
   identifier = "about"
-  name = "About"
+  name = "Who am I?"
   title = "About section"
   url = "/about/"
   weight = -120
 
 [[menu.main]]
-  identifier = "portfolio"
-  name = "Portfolio"
-  title = "Portfolio"
-  url = "/portfolio/"
+  identifier = "experience"
+  name = "Experience"
+  title = "Experience"
+  url = "/experience/"
   weight = -110
 
 [[menu.main]]
-  identifier = "blog"
-  name = "Post"
-  title = "Blog section"
-  url = "/post/"
+  identifier = "education"
+  name = "Education"
+  title = "Education"
+  url = "/education/"
   weight = -100
+  
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  title = "Projects"
+  url = "/projects/"
+  weight = -90  
+
+[[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  title = "Blog section"
+  url = "/blog/"
+  weight = -80
 
 [sitemap]
   changefreq = "monthly"
