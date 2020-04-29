@@ -1,7 +1,7 @@
 ---
 description: Welcome to my website!
 images:
-- /images/sample.jpg
+- /images/analytics.jpg
 title:
 ---
 ## Hello!
@@ -12,18 +12,6 @@ I've been working with Data since 2018 and in the process I've developed a passi
 
 Want to know more abot me as a person? [Click here!](/about "Get to know me better")
  
-#### Skills
-
-<table style="width: 100%">
-<tr>
-  <td>
-    <img src="/skills/skills-1.png" style="width: 250px;" />
-  </td>
-  <td>
-    <img src="/skills/skills-2.png" style="width: 250px;" />
-  </td>
-</tr>
-</table>
 
 #### Download CV
 

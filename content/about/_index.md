@@ -1,7 +1,7 @@
 ---
 description: Hello! 
 images:
-- /images/sample.jpg
+- /images/analytics.jpg
 title: About Me
 ---
 
