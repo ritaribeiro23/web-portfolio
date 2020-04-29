@@ -36,9 +36,9 @@ unsafe= true
 [params.sections]
   # Define how your sections will be called
   # when automatically pulled. For instance in the 404 page
-  post = "post"
+  post = "blog"
   portfolio = "portfolio"
-  skills = "skills"
+  
 
 [params.sidebar]
   backgroundImage = '/images/ribeira.jpg' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
@@ -51,7 +51,7 @@ unsafe= true
 [params.social]
   github = "https://github.com/ritaribeiro23"
   #twitter = "https://twitter.com/"
-  linkedin = "www.linkedin.com/in/rita-e-ribeiro"
+  linkedin = "https://www.linkedin.com/in/rita-e-ribeiro"
   #medium = "https://medium.com/"
 
 [params.contact]
