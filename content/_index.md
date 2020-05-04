@@ -1,5 +1,5 @@
 ---
-description: Data Science | Advanced Analytics
+description: Rita E. Ribeiro | Data Science | Advanced Analytics
 images:
 - /images/analytics.jpg
 title:
