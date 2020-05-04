@@ -1,5 +1,5 @@
 ---
-description: Welcome to my website!
+description: Data Science | Advanced Analytics
 images:
 - /images/analytics.jpg
 title:

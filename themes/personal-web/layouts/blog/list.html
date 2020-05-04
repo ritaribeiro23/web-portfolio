@@ -1,0 +1,12 @@
+{{ partial "header" .}}
+
+  <h1 id="title"> {{ .Title }}</h1>
+  {{ .Content }}
+
+  <div class="blog-list">
+    {{ range .Pages.ByPublishDate.Reverse }}
+      {{ partial "blog/item" .}}
+    {{ end }}
+  </div>
+
+{{ partial "footer" .}}
