@@ -75,6 +75,8 @@ Development and Maintenance of a purchase based and affinity based recommender s
 Technologies used:
 * SQL Server and T-SQL
 * R
+
+<img src="/images/simply.png" />
 ___________________________________________________________________________
 
 ### Application for Operational Control

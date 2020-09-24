@@ -2,10 +2,18 @@
 description: Experience Section
 title: Experience
 ---
+### Data Scientist
+#### [GNG](https://www.gng.pt/pt/)
+##### June 2020 - Present
+
+**Main Responsabilities**
+* Stock provision using Time Series models (namely *fbprophet*).
+* Customer Analytics.
+___________________________________________________________________________
 
 ### Data Scientist for Marketing and Digital Services
 #### Jumia Porto Tech Center
-##### January 2020 - Present
+##### January 2020 - May 2020
 
 **Main Responsabilities**
 * Client segment creation for CRM analysis.
