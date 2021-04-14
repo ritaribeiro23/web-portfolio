@@ -89,7 +89,7 @@ googleAnalytics                 = "G-SYT5M0PET4"                     # https://g
     [languages.en]
         languageName     = "English"
         languageCode     = "en-us"
-        contentDir       = "content/en"
+        contentDir       = "content/"
         weight           = 0
         title            = "Rita E. Ribeiro"
         [languages.en.params]
