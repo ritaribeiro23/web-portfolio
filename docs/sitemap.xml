@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.reribeiro.pt/projects/</loc>
+    <loc>/projects/</loc>
     <lastmod>2021-04-14T20:12:51+01:00</lastmod>
   </url><url>
-    <loc>http://www.reribeiro.pt/</loc>
+    <loc>/</loc>
     <lastmod>2021-04-14T20:12:51+01:00</lastmod>
   </url><url>
-    <loc>http://www.reribeiro.pt/series/</loc>
+    <loc>/series/</loc>
   </url><url>
-    <loc>http://www.reribeiro.pt/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>
