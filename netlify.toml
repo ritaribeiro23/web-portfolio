@@ -13,7 +13,7 @@
   #publish = "docs/"
 
   # Default build command.
-  command = "echo 'Faith is everything.'"
+  command = "hugo --gc --minify -t . -d docs -v -b /" #"echo 'Faith is everything.'"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
