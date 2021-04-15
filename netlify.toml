@@ -13,16 +13,16 @@
   publish = "public/"
 
   # Default build command.
-  command = "hugo --gc --minify -t . -d public -v -b /" #"echo 'Faith is everything.'"
+  command = "hugo --gc --minify --themesDir themes -d public -v -b /"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
 [context.production]
   publish = "public/"
-  command = "hugo --gc --minify -t . -d public -v -b /"
+  command = "hugo --gc --minify --themesDir themes -d public -v -b /"
 
 # Deploy Preview context: all deploys resulting from a pull/merge request will
 # inherit these settings.
 [context.deploy-preview]
   publish = "public/"
-  command = "hugo --gc --minify -t . -d public -v -b /"
+  command = "hugo --gc --minify --themesDir themes -d public -v -b /"
