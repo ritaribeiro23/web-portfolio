@@ -17,12 +17,12 @@
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
-[context.production]
-  publish = "docs/"
-  command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
+#[context.production]
+#  publish = "docs/"
+#  command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
 
 # Deploy Preview context: all deploys resulting from a pull/merge request will
 # inherit these settings.
-[context.deploy-preview]
-  publish = "docs/"
-  command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
+#[context.deploy-preview]
+#  publish = "docs/"
+#  command = "hugo --gc --minify -t ../.. -d ../docs -v -b /"
