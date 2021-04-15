@@ -1,8 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rita E. Ribeiro</title><link>/</link><description>Recent content on Rita E. Ribeiro</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 28 Oct 2020 20:00:00 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Data Visualization</title><link>/projects/photography/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/photography/</guid><description>Under development</description></item><item><title>Data Science</title><link>/projects/design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/design/</guid><description>Bellow there are some of my Data Science Projects that I share here on my Blog:
-Time Series Analysis e-Commerce Time-Series Analysis Part 1: Intro and Exploratory Data Analysis e-Commerce Time-Series Analysis Part 2: Forecast Sales using Classical Models e-Commerce Time-Series Analysis Part 3: Forecast Sales using ARIMA and SARIMA Models Multivariate Time Series Analysis</description></item><item><title>Tutorials</title><link>/projects/writing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/projects/writing/</guid><description>Under development</description></item><item><title>e-Commerce Time-Series Analysis Part 2: Forecast Sales using Classical Models</title><link>/blog/ecm-timeseries-analysis-pt2/</link><pubDate>Wed, 28 Oct 2020 20:00:00 +0100</pubDate><guid>/blog/ecm-timeseries-analysis-pt2/</guid><description>Welcome back!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rita E. Ribeiro</title>
+    <link>/</link>
+    <description>Recent content on Rita E. Ribeiro</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Oct 2020 20:00:00 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Visualization</title>
+      <link>/projects/photography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/photography/</guid>
+      <description>Under development</description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/projects/design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/design/</guid>
+      <description>Bellow there are some of my Data Science Projects that I share here on my Blog:
+Time Series Analysis e-Commerce Time-Series Analysis Part 1: Intro and Exploratory Data Analysis e-Commerce Time-Series Analysis Part 2: Forecast Sales using Classical Models e-Commerce Time-Series Analysis Part 3: Forecast Sales using ARIMA and SARIMA Models Multivariate Time Series Analysis  </description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/projects/writing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/writing/</guid>
+      <description>Under development</description>
+    </item>
+    
+    <item>
+      <title>e-Commerce Time-Series Analysis Part 2: Forecast Sales using Classical Models</title>
+      <link>/blog/ecm-timeseries-analysis-pt2/</link>
+      <pubDate>Wed, 28 Oct 2020 20:00:00 +0100</pubDate>
+      
+      <guid>/blog/ecm-timeseries-analysis-pt2/</guid>
+      <description>Welcome back!
 Last post I discussed how this Series of blog posts compiles the assignment that got me started with Time Series and introduced the Exploratory Data Analysis for the Time Series I&amp;rsquo;ll be studying. Remember Plot 1.1?
 Plot 1.1: E-commerce revenue in the United States of America, from Jan 2000 to April 2018
-If you don&amp;rsquo;t, please check Part 1 in the link below so you can get up to speed:</description></item><item><title>e-Commerce Time-Series Analysis Part 1: Intro and Exploratory Data Analysis</title><link>/blog/ecm-timeseries-analysis-pt1/</link><pubDate>Mon, 19 Oct 2020 20:00:00 +0100</pubDate><guid>/blog/ecm-timeseries-analysis-pt1/</guid><description>Sometime ago someone asked me if I could pin-point the moment where my passion for Time Series was born, and although I could not express the exact moment, I could locate in my mind the assignment that had done it for me.
-Back in 2018 I toke a course about Prediction Models and Time Series during my Master&amp;rsquo;s. During that course I had to turn in a paper that was worth half the grade of the course, and was the during the development of said paper that I trully fell in love with the wonderous world of Time Series.</description></item><item><title>Multivariate Time Series Analysis</title><link>/blog/multivariate-time-series-analysis/</link><pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate><guid>/blog/multivariate-time-series-analysis/</guid><description>Last year I was challenged to solve a small multivarite time-series problem as a recruitment exercise. Even though I wasn&amp;rsquo;t picked for the position, I had so much fun preparing this document that I decided to share it on my blog.
+If you don&amp;rsquo;t, please check Part 1 in the link below so you can get up to speed:</description>
+    </item>
+    
+    <item>
+      <title>e-Commerce Time-Series Analysis Part 1: Intro and Exploratory Data Analysis</title>
+      <link>/blog/ecm-timeseries-analysis-pt1/</link>
+      <pubDate>Mon, 19 Oct 2020 20:00:00 +0100</pubDate>
+      
+      <guid>/blog/ecm-timeseries-analysis-pt1/</guid>
+      <description>Sometime ago someone asked me if I could pin-point the moment where my passion for Time Series was born, and although I could not express the exact moment, I could locate in my mind the assignment that had done it for me.
+Back in 2018 I toke a course about Prediction Models and Time Series during my Master&amp;rsquo;s. During that course I had to turn in a paper that was worth half the grade of the course, and was the during the development of said paper that I trully fell in love with the wonderous world of Time Series.</description>
+    </item>
+    
+    <item>
+      <title>Multivariate Time Series Analysis</title>
+      <link>/blog/multivariate-time-series-analysis/</link>
+      <pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate>
+      
+      <guid>/blog/multivariate-time-series-analysis/</guid>
+      <description>Last year I was challenged to solve a small multivarite time-series problem as a recruitment exercise. Even though I wasn&amp;rsquo;t picked for the position, I had so much fun preparing this document that I decided to share it on my blog.
 Keep in mind that this is only a theoretical problem, and that in a real-life scenario this dataset would be to small to render substantial conclusions.
-The Problem The proposed problem is to predict if the sales of a given item will increase during a promotional action.</description></item></channel></rss>
+The ProblemThe proposed problem is to predict if the sales of a given item will increase during a promotional action.</description>
+    </item>
+    
+  </channel>
+</rss>
