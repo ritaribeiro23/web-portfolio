@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Rita E. Ribeiro | Data Science &amp; Advanced Analytics">
+<title>
+Multivariate Time Series Analysis - Rita E. Ribeiro
+</title>
+
+
+
+        
+<script async defer data-domain="" src="https://plausible.io/js/plausible.js"></script>
+        <meta property="og:title" content="Multivariate Time Series Analysis - Rita E. Ribeiro" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="A small blog post about Multivariate Time Series Analysis"/>
+<meta property="og:url" content="/blog/multivariate-time-series-analysis/"/>
+<meta property="og:site_name" content="Rita E. Ribeiro"/>
+
+
+
+
+<meta property="og:image" content="/home/profile.jpg"/>
+
+
+
+
+        
+<link rel="shortcut icon" href="/img/fav.ico">
+
+
+        
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.912c712459f193c9f111a0f4fe4ba8074edafb7127a95a82109d48a8daa8d805.css" integrity="sha256-kSxxJFnxk8nxEaD0/kuoB07a&#43;3EnqVqCEJ1IqNqo2AU=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+        
+        
+        
+        
+    </head>
+    <body>
+        <section id="top" class="section">
+            
+            <div class="container hero  fade-in one ">
+                
+
+<h1 class="bold-title is-1">Blog</h1>
+
+
+            </div>
+            
+            <div class="section  fade-in two ">
+                
+<div class="container">
+    <hr>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu " id="navMenu">
+            
+            
+            
+            
+            <a class="navbar-item" href="/">main</a>
+            
+
+            
+            
+
+            
+                
+            
+
+            
+                
+            
+
+            
+            
+            
+            <a class="navbar-item" href="/#about">About Me</a>
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="/projects/">
+                  
+                  
+                  Projects
+                  
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+            
+            <a class="navbar-item" href="/#dynamic_cv">Dynamic CV</a>
+            
+            
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="/blog/">
+                  
+                  Back to Blog
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+
+            
+            
+            <a class="navbar-item" href="/#contact">Contact</a>
+            
+            
+
+            
+
+            
+            
+        </div>
+    </nav>
+    <hr>
+</div>
+
+
+
+                
+<div class="container">
+    <h2 class="title is-1 top-pad strong-post-title">
+        <a href="/blog/multivariate-time-series-analysis/">Multivariate Time Series Analysis</a>
+    </h2>
+    <div class="post-data">
+        1 Nov 2019 |
+        12 minutes read
+    </div>
+    
+    <div class="blog-share">
+        Share this:
+        
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Multivariate%20Time%20Series%20Analysis%20%2fblog%2fmultivariate-time-series-analysis%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <i class="fab fa-twitter"></i>
+            <span class="hidden">Twitter</span>
+        </a>
+        
+        
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=%2fblog%2fmultivariate-time-series-analysis%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <i class="fab fa-facebook-f"></i>
+            <span class="hidden">Facebook</span>
+        </a>
+        
+        
+        <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=%2fblog%2fmultivariate-time-series-analysis%2f&amp;description=Multivariate%20Time%20Series%20Analysis" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+            <i class="fab fa-pinterest-p"></i>
+            <span class="hidden">Pinterest</span>
+        </a>
+        
+    </div>
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+     <p>
+         Tags: 
+          
+           <a href="/tags/analysis">
+             Analysis</a>,
+         
+           <a href="/tags/data">
+             Data</a>,
+         
+           <a href="/tags/timeseries">
+             TimeSeries</a>,
+         
+           <a href="/tags/analytics">
+             Analytics</a>
+         
+        </p>
+      
+    
+      
+    
+</div>
+
+<div class="container markdown top-pad">
+    <p>Last year I was challenged to solve a small multivarite time-series problem as a recruitment exercise.
+Even though I wasn&rsquo;t picked for the position, I had so much fun preparing this document that I decided to share it on my blog.</p>
+<p>Keep in mind that this is only a theoretical problem, and that in a real-life scenario this dataset would be to small to render substantial conclusions.</p>
+
+<h3 id="the-problem" class="anchor-link"><a href="#the-problem"><strong>The Problem</strong></a></h3>
+<p>The proposed problem is to predict if the sales of a given item will increase during a promotional action.</p>
+
+<h3 id="0-data-cleaning" class="anchor-link"><a href="#0-data-cleaning"><strong>0) Data Cleaning</strong></a></h3>
+<p>Before starting this study, I worked the dataset. I organized the data
+into a .CSV file so the R software could read it easily. I also added a
+new variable in substitution of the original <em>Promotion</em> variable,
+called <em>Promo_B</em>, that transformed the factors &ldquo;Sim/Não&rdquo; into a binary
+1/0 variable.</p>
+
+<h3 id="1-exploratory-data-analysis" class="anchor-link"><a href="#1-exploratory-data-analysis"><strong>1) Exploratory Data Analysis</strong></a></h3>
+<p>The first step in any Data Science project is to explore the data using
+Statistical Measurements to gain basic data intuition.</p>
+<p>After importing the data to my project, I executed some summaries on the
+data:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">summary</span>(df_Sales[, <span style="color:#40a070">3</span><span style="color:#666">:</span><span style="color:#40a070">5</span>])
+
+Sales           Price       Promo   
+Min.   <span style="color:#666">:</span> <span style="color:#40a070">3186</span>   Min.   <span style="color:#666">:</span><span style="color:#40a070">1.000</span>   No<span style="color:#666">:</span><span style="color:#40a070">40</span>  
+<span style="color:#40a070">1</span>st Qu.<span style="color:#666">:</span> <span style="color:#40a070">6968</span>   <span style="color:#40a070">1</span>st Qu.<span style="color:#666">:</span><span style="color:#40a070">1.400</span>   Yes<span style="color:#666">:</span> <span style="color:#40a070">8</span>  
+Median <span style="color:#666">:</span> <span style="color:#40a070">8670</span>   Median <span style="color:#666">:</span><span style="color:#40a070">1.500</span>           
+Mean   <span style="color:#666">:</span> <span style="color:#40a070">9166</span>   Mean   <span style="color:#666">:</span><span style="color:#40a070">1.433</span>           
+<span style="color:#40a070">3</span>rd Qu.<span style="color:#666">:</span><span style="color:#40a070">11870</span>   <span style="color:#40a070">3</span>rd Qu.<span style="color:#666">:</span><span style="color:#40a070">1.500</span>           
+Max.   <span style="color:#666">:</span><span style="color:#40a070">17198</span>   Max.   <span style="color:#666">:</span><span style="color:#40a070">1.800</span>
+</code></pre></div><p>The trivial conclusions one can draw at this point are:</p>
+<ul>
+<li>The mean sales value is 8670€;</li>
+<li>The most usual price of sale is 1.50;</li>
+<li>Usually, the product is not on sale.</li>
+</ul>
+<p>To understand the correlation between the variables, I studied them
+graphically:</p>
+
+<h4 id="sales-vs-price" class="anchor-link"><a href="#sales-vs-price"><strong>Sales VS Price</strong></a></h4>
+<p><img src="/blog/images/figure-markdown_strict/salesVSprices-1.png" alt="img_1"></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">    <span style="color:#06287e">cor</span>(df_Sales[, <span style="color:#40a070">3</span>], df_Sales[, <span style="color:#40a070">4</span>])
+</code></pre></div><pre><code>:: -0.3256287
+</code></pre>
+<p>The variables Sales and Prices exhibit a small negative correlation,
+which means that there is a slight clue that the sales increase when the
+prices are lower. Since the correlation is larger than -0.5, I can&rsquo;t
+extrapolate correlation between these two variables.</p>
+
+<h4 id="price-vs-promotion" class="anchor-link"><a href="#price-vs-promotion"><strong>Price VS Promotion</strong></a></h4>
+<p><img src="/blog/images/figure-markdown_strict/pricesVSpromotions-1.png" alt=""></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">cor</span>(df_Sales[, <span style="color:#40a070">4</span>], df_Sales[, <span style="color:#40a070">6</span>])
+</code></pre></div><p>:: -0.4703023</p>
+<p>Prices and promotions exhibit a lower negative correlation, which is to
+be expected since is trivial to think that lower prices occur during
+promotions. Although this conclusion might seem trivial at first, for
+this example it is not since its value is higher than -0.5, therefore
+the correlation is not significance.</p>
+
+<h4 id="sales-vs-promotion" class="anchor-link"><a href="#sales-vs-promotion"><strong>Sales VS Promotion</strong></a></h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">cor</span>(df_Sales[, <span style="color:#40a070">3</span>], df_Sales[, <span style="color:#40a070">6</span>])
+</code></pre></div><p>:: 0.3597347</p>
+<p>For the sake of simplicity, I decided not to display the plot for this
+correlation. By observing its value, I can conclude that Sales and
+Promotions exhibit a small positive correlation, although not big enough
+to establish correlation (and potentially eliminate one of these
+variables).</p>
+<p>After the calculation of these correlations, I conclude that I cannot
+eliminate neither of the variables since the correlation factors are not
+strong enough. Given this, I will proceed this study assuming the
+variables Price and Promotion as exogenous (i.e., not correlated with
+the time series Sales).</p>
+
+<h3 id="2-seasonality-trend-and-stationarity" class="anchor-link"><a href="#2-seasonality-trend-and-stationarity"><strong>2) Seasonality, Trend and Stationarity</strong></a></h3>
+
+<h4 id="seasonality" class="anchor-link"><a href="#seasonality"><strong>Seasonality</strong></a></h4>
+<p>To access if the Sales time series contains Seasonality, I studied is
+monthplot:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">par</span>(mfrow<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>,<span style="color:#40a070">1</span>))
+<span style="color:#06287e">monthplot</span>(ts_sales, 
+        main <span style="color:#666">=</span> <span style="color:#4070a0">&#34;Monthly Sales Values&#34;</span>, 
+        ylab<span style="color:#666">=</span><span style="color:#4070a0">&#34;Values in euros&#34;</span>,
+        xlab <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Month&#39;</span>)
+</code></pre></div><p><img src="/blog/images/figure-markdown_strict/s_plot-1.png" alt=""></p>
+<p>It is very obvious to observe peaks of sales usually occur during April
+and November, and the lowest sales occur during February and June.</p>
+<p>The next step is to access which transform best models the seasonality
+of this time series:</p>
+<p><strong>Candidate models for seasonality:</strong></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">par</span>(mfrow<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">2</span>))
+<span style="color:#06287e">plot</span>(<span style="color:#06287e">decompose</span>(ts_sales, type<span style="color:#666">=</span><span style="color:#4070a0">&#34;additive&#34;</span>)<span style="color:#666">$</span>seasonal, 
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;Sales as Additive Model&#34;</span>,
+     ylab<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>)
+
+<span style="color:#06287e">plot</span>(<span style="color:#06287e">decompose</span>(<span style="color:#06287e">log</span>(ts_sales), type<span style="color:#666">=</span><span style="color:#4070a0">&#34;additive&#34;</span>)<span style="color:#666">$</span>seasonal, 
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;LOG(Sales) as Additive Model&#34;</span>,
+     ylab<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>)
+
+<span style="color:#06287e">plot</span>(<span style="color:#06287e">decompose</span>(ts_sales, type<span style="color:#666">=</span><span style="color:#4070a0">&#34;multiplicative&#34;</span>)<span style="color:#666">$</span>seasonal,
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;Sales as Multiplicative Model&#34;</span>,
+     ylab<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>)
+
+<span style="color:#06287e">plot</span>(<span style="color:#06287e">decompose</span>(<span style="color:#06287e">log</span>(ts_sales), type<span style="color:#666">=</span><span style="color:#4070a0">&#34;multiplicative&#34;</span>)<span style="color:#666">$</span>seasonal,
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;LOG(Sales) as Multiplicative Model&#34;</span>,
+     ylab<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>)
+</code></pre></div><p><img src="/blog/images/figure-markdown_strict/Season_plots-1.png" alt=""></p>
+<p>Given that the Additive Model is the one which explains the models with
+the least transforms, I will safely proceed my study with this
+assumption.</p>
+
+<h4 id="trend" class="anchor-link"><a href="#trend"><strong>Trend</strong></a></h4>
+<p>To access the Trend of this series, I displayed the Trend of the Sales
+series, assuming a additive model:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">plot</span>(<span style="color:#06287e">decompose</span>(ts_sales, type<span style="color:#666">=</span><span style="color:#4070a0">&#34;additive&#34;</span>)<span style="color:#666">$</span>trend, 
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;Trend of Sales Values as an Additive Model&#34;</span>,
+     ylab<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>)
+</code></pre></div><p><img src="/blog/images/figure-markdown_strict/trend-1.png" alt=""></p>
+<p>It is not clear to assume an increasing Trend (even if the most recent
+values show so). Further exploration on stationarity will be necessary,
+but for now one can exclude classical models for forecasting (such as
+classical decomposition, seasonal decomposition using Loess), since
+these models depend on a well behaved trend.</p>
+
+<h4 id="stationarity" class="anchor-link"><a href="#stationarity"><strong>Stationarity</strong></a></h4>
+<p>One of the conditions for the ARIMA models to be applicable to a time
+series is that said time series is stationary. One can verify the
+stationarity of a time series by studying its Auto-Correlation Function
+(ACF) and Partial ACF. These functions allow us to check for dependence
+between one point and past values. A time series is stationary when both
+ACF and PACF tend to zero after a short lag. One can also corroborate
+this results with the Dicker-Fuller test.</p>
+<p>If a time series is not stationary in its normal form, it might be
+necessary to perform differentiates on the time series until one
+archives stationarity. The number of differentiation steps needed to
+obtain a stationary series will be the order of I in the ARIMA model.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">par</span>(mfrow<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">1</span>))
+
+<span style="color:#06287e">acf</span>(ts_sales, 
+    main<span style="color:#666">=</span><span style="color:#4070a0">&#34;a) Sample ACF for the Sales time series&#34;</span>,
+    lag.max <span style="color:#666">=</span> <span style="color:#40a070">48</span>)
+
+<span style="color:#06287e">pacf</span>(ts_sales, 
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;b) Sample PACF for the Sales time series&#34;</span>,
+     lag.max <span style="color:#666">=</span> <span style="color:#40a070">48</span>)
+</code></pre></div><p><img src="/blog/images/figure-markdown_strict/stationarity-1.png" alt=""></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">adf.test</span>(ts_sales, alternative<span style="color:#666">=</span><span style="color:#4070a0">&#39;s&#39;</span>)
+
+Augmented Dickey<span style="color:#666">-</span>Fuller Test
+ 
+data<span style="color:#666">:</span>  ts_sales
+Dickey<span style="color:#666">-</span>Fuller <span style="color:#666">=</span> <span style="color:#40a070">-4.1286</span>, Lag order <span style="color:#666">=</span> <span style="color:#40a070">3</span>, p<span style="color:#666">-</span>value <span style="color:#666">=</span> <span style="color:#40a070">0.01204</span>
+alternative hypothesis<span style="color:#666">:</span> stationary
+</code></pre></div><p>The p-value displayed allows for the acceptance of the null hypothesis
+of the Dicker-Fuller test, which implies that there are no unit roots
+for this time series in its normal form and stationarity is guaranteed.</p>
+<p>The order of I in the ARIMA model used will be zero, since there was no
+need for differentiation in this time series.</p>
+
+<h3 id="3-arima-models-and-forecasting" class="anchor-link"><a href="#3-arima-models-and-forecasting"><strong>3) ARIMA Models and Forecasting</strong></a></h3>
+<p>Due to the Seasonal component of the Sales time series, can safely
+assume that this modeling will use a Seasonal ARIMA model.</p>
+
+<h4 id="methodology" class="anchor-link"><a href="#methodology"><strong>Methodology</strong></a></h4>
+<p>Given that I&rsquo;m trying to find the optimal model to forecast this time
+series, I decided to use the Hold-Out method in the following fashion:</p>
+<ul>
+<li>From Jan 2015 to Sep 2018: training set;</li>
+<li>From Oct 2018 to Dec 2018: testing set.</li>
+</ul>
+<p>After I find the optimal model, I will then use the full dataset for
+training before predicting Jan 2019 to Mar 2019.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">part_point <span style="color:#666">&lt;-</span> <span style="color:#40a070">45</span>
+
+sales_train <span style="color:#666">&lt;-</span> <span style="color:#06287e">ts</span>(df_Sales[1<span style="color:#666">:</span>part_point, <span style="color:#40a070">3</span>], 
+                    start <span style="color:#666">=</span> <span style="color:#06287e">c</span>(<span style="color:#40a070">2015</span>, <span style="color:#40a070">1</span>), 
+                    deltat <span style="color:#666">=</span> <span style="color:#40a070">1</span><span style="color:#666">/</span><span style="color:#40a070">12</span>)
+sales_test <span style="color:#666">&lt;-</span> <span style="color:#06287e">ts</span>(df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, <span style="color:#40a070">3</span>], 
+                    start <span style="color:#666">=</span> <span style="color:#06287e">c</span>(<span style="color:#40a070">2018</span>, <span style="color:#40a070">9</span>), 
+                    deltat <span style="color:#666">=</span> <span style="color:#40a070">1</span><span style="color:#666">/</span><span style="color:#40a070">12</span>)
+
+exo_vars <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales[1<span style="color:#666">:</span>part_point, 
+                        <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+exo_vars_test <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, 
+                            <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+</code></pre></div>
+<h4 id="finding-the-model" class="anchor-link"><a href="#finding-the-model"><strong>Finding the Model</strong></a></h4>
+<p>To confirm the findings of the previous section. I ran the following
+code to obtain the optimal number of differentiations (series and
+seasonal) suggested by R:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">ndiffs</span>(ts_sales)
+</code></pre></div><p>:: 0</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">nsdiffs</span>(ts_sales)
+</code></pre></div><p>::0</p>
+<p>As expected, no differentiations are needed.</p>
+<p><strong>R model suggestion</strong></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">auto.arima</span>(sales_train, xreg <span style="color:#666">=</span> exo_vars)
+
+Series<span style="color:#666">:</span> sales_train 
+Regression with <span style="color:#06287e">ARIMA</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>)(<span style="color:#40a070">1</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>)[12] errors 
+     
+Coefficients<span style="color:#666">:</span>
+         sar1  intercept      Price   Promo_B
+       <span style="color:#40a070">0.3519</span>  <span style="color:#40a070">13941.204</span>  <span style="color:#40a070">-3678.188</span>  <span style="color:#40a070">2177.182</span>
+ s.e.  <span style="color:#40a070">0.1772</span>   <span style="color:#40a070">5087.843</span>   <span style="color:#40a070">3447.355</span>  <span style="color:#40a070">1636.796</span>
+     
+sigma^2 estimated as <span style="color:#40a070">8123772</span><span style="color:#666">:</span>  log likelihood<span style="color:#666">=</span><span style="color:#40a070">-420.53</span>
+AIC<span style="color:#666">=</span><span style="color:#40a070">851.07</span>   AICc<span style="color:#666">=</span><span style="color:#40a070">852.6</span>   BIC<span style="color:#666">=</span><span style="color:#40a070">860.1</span>
+</code></pre></div><p>As seen above, the model suggested by R is a SARIMA (0,0,0)x(1,0,0).</p>
+<p>I then proceeded to train the model (given the exoneous variables):</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">fit1 <span style="color:#666">&lt;-</span> <span style="color:#06287e">Arima</span>(sales_train, 
+              order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), 
+              seasonal<span style="color:#666">=</span><span style="color:#06287e">list</span>(order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), period<span style="color:#666">=</span><span style="color:#40a070">12</span>),
+              xreg <span style="color:#666">=</span> exo_vars)
+fit1
+
+Series<span style="color:#666">:</span> sales_train 
+Regression with <span style="color:#06287e">ARIMA</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>)(<span style="color:#40a070">1</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>)[12] errors 
+ 
+Coefficients<span style="color:#666">:</span>
+sar1  intercept      Price   Promo_B
+<span style="color:#40a070">0.3519</span>  <span style="color:#40a070">13941.204</span>  <span style="color:#40a070">-3678.188</span>  <span style="color:#40a070">2177.182</span>
+s.e.  <span style="color:#40a070">0.1772</span>   <span style="color:#40a070">5087.843</span>   <span style="color:#40a070">3447.355</span>  <span style="color:#40a070">1636.796</span>
+ 
+sigma^2 estimated as <span style="color:#40a070">8123772</span><span style="color:#666">:</span>  log likelihood<span style="color:#666">=</span><span style="color:#40a070">-420.53</span>
+AIC<span style="color:#666">=</span><span style="color:#40a070">851.07</span>   AICc<span style="color:#666">=</span><span style="color:#40a070">852.6</span>   BIC<span style="color:#666">=</span><span style="color:#40a070">860.1</span>
+</code></pre></div><p>For the sake of coherency, I added 3 different models to the test:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#60a0b0;font-style:italic"># (0,0,0)x(2,0,0)</span>
+fit2 <span style="color:#666">&lt;-</span> <span style="color:#06287e">Arima</span>(sales_train, 
+              order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), 
+              seasonal<span style="color:#666">=</span><span style="color:#06287e">list</span>(order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), period<span style="color:#666">=</span><span style="color:#40a070">12</span>),
+              xreg <span style="color:#666">=</span> exo_vars)
+
+<span style="color:#60a0b0;font-style:italic"># (0,0,0)x(1,0,1)</span>
+fit3 <span style="color:#666">&lt;-</span> <span style="color:#06287e">Arima</span>(sales_train, 
+              order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), 
+              seasonal<span style="color:#666">=</span><span style="color:#06287e">list</span>(order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">1</span>), period<span style="color:#666">=</span><span style="color:#40a070">12</span>),
+              xreg <span style="color:#666">=</span> exo_vars)
+
+<span style="color:#60a0b0;font-style:italic"># (0,0,0)x(0,0,1)</span>
+fit4 <span style="color:#666">&lt;-</span> <span style="color:#06287e">Arima</span>(sales_train, 
+              order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), 
+              seasonal<span style="color:#666">=</span><span style="color:#06287e">list</span>(order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>), period<span style="color:#666">=</span><span style="color:#40a070">12</span>),
+              xreg <span style="color:#666">=</span> exo_vars)
+</code></pre></div><p>To access the validity of the model, I need to check the values for the
+Akaike Information Criteria (AIC) and the Bayesian Information Criteria
+(BIC), the goal being to choose the candidate model that minimizes these
+values:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">AIC</span>(fit1)
+</code></pre></div><p>:: 851.0651</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">BIC</span>(fit1)
+</code></pre></div><p>:: 860.0984</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">AIC</span>(fit2)
+</code></pre></div><p>:: 851.5745</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">BIC</span>(fit2)
+</code></pre></div><p>:: 862.4145</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">AIC</span>(fit3)
+</code></pre></div><p>:: 851.709</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">BIC</span>(fit3)
+</code></pre></div><p>:: 862.549</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">AIC</span>(fit4)
+</code></pre></div><p>:: 852.1649</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">BIC</span>(fit4)
+</code></pre></div><p>:: 861.1982</p>
+<p>The model that minimizes the values for AIC and BIC is indeed the model
+initially suggested by the function auto.arima(), therefore I will
+continue my study using this model.</p>
+<p>Next, it is important to check the Residuals of the model, using
+Ljung-Box test and Normal Distribution:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">par</span>(mfrow<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">2</span>))
+<span style="color:#06287e">plot</span>(fit1<span style="color:#666">$</span>residuals, 
+     main<span style="color:#666">=</span><span style="color:#4070a0">&#34;a) Plot for residuals for the predicted model&#34;</span>)
+<span style="color:#06287e">acf</span>(fit1<span style="color:#666">$</span>residuals, 
+    lag.max <span style="color:#666">=</span> <span style="color:#40a070">36</span>,
+    main<span style="color:#666">=</span><span style="color:#4070a0">&#34;b) Sample ACF for residuals for the predicted model&#34;</span>)
+<span style="color:#06287e">qqnorm</span>(fit1<span style="color:#666">$</span>residuals,
+    main<span style="color:#666">=</span><span style="color:#4070a0">&#34;c) QQPlot for residuals for the predicted model&#34;</span>)
+<span style="color:#06287e">qqline</span>(fit1<span style="color:#666">$</span>residuals)
+</code></pre></div><p><img src="/blog/images/figure-markdown_strict/residuals-1.png" alt=""></p>
+<p>The model also passes this test, with a stable ACF (near zero for higher
+lags) and no noticeable tails in the QQPlot.</p>
+
+<h4 id="testing-the-model" class="anchor-link"><a href="#testing-the-model"><strong>Testing the Model</strong></a></h4>
+<p>After deciding the model that I will be using, I predicted known values,
+in order to check the model&rsquo;s validity:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">ARfcst1 <span style="color:#666">&lt;-</span> <span style="color:#06287e">forecast</span>(fit1, xreg <span style="color:#666">=</span> exo_vars_test, h<span style="color:#666">=</span> <span style="color:#40a070">3</span>)
+ARfcst1 
+</code></pre></div><pre><code>##          Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## Oct 2018      10018.557 6365.849 13671.26 4432.222 15604.89
+## Nov 2018      13524.000 9871.292 17176.71 7937.665 19110.33
+## Dec 2018       8437.126 4784.418 12089.83 2850.791 14023.46
+</code></pre>
+<p>One can easily check that, for Oct 2018 and Nov 2018, the real values
+are in the Hi 80 category. For Dec 2018, the real value is comprised
+between the point forecast and the Hi 80 value.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#06287e">accuracy</span>(ARfcst1, df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, <span style="color:#40a070">3</span>] )
+</code></pre></div><pre><code>##                      ME     RMSE      MAE       MPE     MAPE      MASE
+## Training set  -24.73526 2720.599 2245.077 -11.76117 29.72003 0.7460306
+## Test set     3104.43916 3260.783 3104.439  22.12055 22.12055 1.0315932
+##                   ACF1
+## Training set 0.1300997
+## Test set            NA
+</code></pre>
+<p>Using MAPE as a global marker, I can assume that this forecast is a
+reasonably good - slightly above 20 and clearly below 50 - which, in
+turn, validates the chosen model.</p>
+<p><img src="/blog/images/figure-markdown_strict/arima_model_plot-1.png" alt=""></p>
+
+<h4 id="forecasting" class="anchor-link"><a href="#forecasting"><strong>Forecasting</strong></a></h4>
+<p>After the previous model validation steps, I proceeded to forecast the
+months of Jan to Mar 2019:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">part_point <span style="color:#666">&lt;-</span> <span style="color:#40a070">48</span>
+exo_vars <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales[1<span style="color:#666">:</span>part_point, <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+
+exo_vars_final_forecast <span style="color:#666">&lt;-</span> <span style="color:#06287e">cbind</span>(<span style="color:#06287e">c</span>(<span style="color:#40a070">1.4</span>, <span style="color:#40a070">1.5</span>, <span style="color:#40a070">1.6</span>), <span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>, <span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>))
+<span style="color:#06287e">colnames</span>(exo_vars_final_forecast) <span style="color:#666">&lt;-</span> <span style="color:#06287e">c</span>(<span style="color:#4070a0">&#39;Price&#39;</span>, <span style="color:#4070a0">&#39;Promo_B&#39;</span>)
+
+final_model <span style="color:#666">&lt;-</span><span style="color:#06287e">Arima</span>(ts_sales, 
+                    order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), 
+                    seasonal<span style="color:#666">=</span><span style="color:#06287e">list</span>(order<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>,<span style="color:#40a070">0</span>,<span style="color:#40a070">0</span>), period<span style="color:#666">=</span><span style="color:#40a070">12</span>),
+                    xreg <span style="color:#666">=</span> exo_vars)
+
+final_forecast <span style="color:#666">&lt;-</span> <span style="color:#06287e">forecast</span>(final_model , 
+                            xreg <span style="color:#666">=</span> exo_vars_final_forecast)
+final_forecast
+</code></pre></div><pre><code>## Point          Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## Jan 2019      13199.079 9591.359 16806.80 7681.547 18716.61
+## Feb 2019       7006.897 3399.177 10614.62 1489.365 12524.43
+## Mar 2019      10375.525 6767.805 13983.25 4857.993 15893.06
+</code></pre>
+<p>After studying this model, I believe the Sales will have the following
+values:</p>
+<ul>
+<li>Jan 2019: between 13199 and 16806</li>
+<li>Feb 2019: between 7006 and 10614</li>
+<li>Mar 2019: between 10375 and 13983</li>
+</ul>
+
+<h3 id="4-neural-networks" class="anchor-link"><a href="#4-neural-networks"><strong>4) Neural Networks</strong></a></h3>
+<p>Given the limited size of the dataset, I decided to continue using the
+forecast library and the <em>nnetar</em> function available for making
+predictions using Neural Networks.</p>
+
+<h4 id="model" class="anchor-link"><a href="#model"><strong>Model</strong></a></h4>
+<p>The format of both the model and the forecasting is very similar to the
+one used for the ARIMA model discussed previously.</p>
+<p>Using the same methodology as before for the training and testing
+dataset, I also proceeded to iterate over the parameters <em>repeats</em> and
+<em>size</em> of the model until I found a optimal configuration.</p>
+<p>According to the <em>nnetar</em> function documentation:</p>
+<ul>
+<li>
+<p><em>size is the number of nodes in the hidden layer. Default is half of
+the number of input nodes (including external regressors, if given)
+plus 1.</em> Tunning this parameter to higher values showed a clear
+degradation of the MAPE measure. I believe this is due to
+over-fitting, since the higher the number of this parameter, the
+higher the number of nodes in the hidden layer, therefore, the
+neural network is too fitted to the input layer and not able to
+adjust to never seen before points.</p>
+</li>
+<li>
+<p><em>repeats is the number of networks to fit with different random
+starting weights. These are then averaged when producing forecasts.</em>
+This parameter allows creating ensembles of similar Neural Networks
+within the model.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> These two parameters work very well together in avoiding the
+<em>bias-variance</em> trade-off. Given the limited size of the dataset, a high
+bias is expected. Tunning the repeats parameter, I introduce variability
+in the model. In bigger datasets this is very important so one can find
+the optimal point for the trade-off (via iterative testing and
+measuring). It is also important to note that the same configuration can
+lead to different results in different iterations, therefore
+experimentation is crucial.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">part_point <span style="color:#666">&lt;-</span> <span style="color:#40a070">45</span>
+sales_train <span style="color:#666">&lt;-</span> <span style="color:#06287e">ts</span>(df_Sales[1<span style="color:#666">:</span>part_point, <span style="color:#40a070">3</span>], start <span style="color:#666">=</span> <span style="color:#06287e">c</span>(<span style="color:#40a070">2015</span>, <span style="color:#40a070">1</span>), deltat <span style="color:#666">=</span> <span style="color:#40a070">1</span><span style="color:#666">/</span><span style="color:#40a070">12</span>)
+sales_test <span style="color:#666">&lt;-</span> <span style="color:#06287e">ts</span>(df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, <span style="color:#40a070">3</span>], start <span style="color:#666">=</span> <span style="color:#06287e">c</span>(<span style="color:#40a070">2018</span>, <span style="color:#40a070">9</span>), deltat <span style="color:#666">=</span> <span style="color:#40a070">1</span><span style="color:#666">/</span><span style="color:#40a070">12</span>)
+
+exo_vars <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales[1<span style="color:#666">:</span>part_point, <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+exo_vars_test <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+
+rep <span style="color:#666">&lt;-</span> <span style="color:#40a070">4</span>
+siz <span style="color:#666">&lt;-</span> <span style="color:#40a070">2</span>
+
+nn_model <span style="color:#666">&lt;-</span> <span style="color:#06287e">nnetar</span>( sales_train,
+                    xreg <span style="color:#666">=</span> exo_vars,
+                    repeats <span style="color:#666">=</span> rep,
+                    size <span style="color:#666">=</span> siz
+                  )
+
+nn_fcst <span style="color:#666">&lt;-</span> <span style="color:#06287e">forecast</span>(nn_model, xreg <span style="color:#666">=</span> exo_vars_test)
+nn_fcst
+</code></pre></div><pre><code>##            Oct       Nov       Dec
+## 2018  8748.257 34002.090  6966.681
+</code></pre>
+<p>I then proceeded to iterate over the parameters <em>repeats</em> and <em>size</em> of
+the model until I found what seemed to be the optimal configuration
+(shown above).</p>
+
+<h4 id="testing" class="anchor-link"><a href="#testing"><strong>Testing</strong></a></h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">    <span style="color:#06287e">accuracy</span>(nn_fcst, df_Sales<span style="color:#06287e">[</span>(part_point<span style="color:#40a070">+1</span>)<span style="color:#666">:</span><span style="color:#40a070">48</span>, <span style="color:#40a070">3</span>] )
+</code></pre></div><pre><code>##                         ME      RMSE      MAE       MPE     MAPE      MASE
+## Training set     0.0651187  1506.795 1128.520 -4.292616 14.05083 0.3750029
+## Test set     -2808.0089096 10320.879 8394.717 -9.701942 55.43776 2.7895324
+##                   ACF1
+## Training set 0.1385054
+## Test set            NA
+</code></pre>
+<p>Keeping MAPE as the global marker, this model shows reasonably good
+forecasting (around 20 in the test set), which doesn&rsquo;t fall too behind
+the ARIMA model constructed before. Since this is a good model, I will
+be using it for forecasting.</p>
+<p><img src="/blog/images/figure-markdown_strict/nn_plot-1.png" alt=""></p>
+
+<h4 id="forecasting-1" class="anchor-link"><a href="#forecasting-1"><strong>Forecasting</strong></a></h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">part_point <span style="color:#666">&lt;-</span> <span style="color:#40a070">48</span>
+exo_vars <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.matrix</span>(df_Sales[1<span style="color:#666">:</span>part_point, <span style="color:#06287e">c</span>(<span style="color:#40a070">4</span>, <span style="color:#40a070">6</span>)])
+
+exo_vars_final_forecast <span style="color:#666">&lt;-</span> <span style="color:#06287e">cbind</span>(<span style="color:#06287e">c</span>(<span style="color:#40a070">1.4</span>, <span style="color:#40a070">1.5</span>, <span style="color:#40a070">1.6</span>), <span style="color:#06287e">c</span>(<span style="color:#40a070">1</span>, <span style="color:#40a070">0</span>, <span style="color:#40a070">1</span>))
+<span style="color:#06287e">colnames</span>(exo_vars_final_forecast) <span style="color:#666">&lt;-</span> <span style="color:#06287e">c</span>(<span style="color:#4070a0">&#39;Price&#39;</span>, <span style="color:#4070a0">&#39;Promo_B&#39;</span>)
+
+final_model <span style="color:#666">&lt;-</span><span style="color:#06287e">nnetar</span>( ts_sales,
+                      xreg <span style="color:#666">=</span> exo_vars,
+                      repeats <span style="color:#666">=</span> <span style="color:#40a070">10</span>,
+                      size <span style="color:#666">=</span> <span style="color:#40a070">10</span>)
+
+final_forecast <span style="color:#666">&lt;-</span> <span style="color:#06287e">forecast</span>(final_model , xreg <span style="color:#666">=</span> exo_vars_final_forecast)
+final_forecast
+</code></pre></div><pre><code>##            Jan       Feb       Mar
+## 2019 29570.403  7783.019 19186.913
+</code></pre>
+<p>Given that, at each iteration, different values are calculated, I
+decided to only forecast the magnitude of values: March will be the
+month with the higher Sales value, followed by January and then
+February.</p>
+
+<h3 id="5-conclusion" class="anchor-link"><a href="#5-conclusion"><strong>5) Conclusion</strong></a></h3>
+<p>During this study, I was able to perform Multivariate Time Series
+Analysis and Forecasting, using both ARIMA and Artificial Neural
+Networks.</p>
+<p>The results were satisfactory although slightly biased due to the
+limited size of the data sample.</p>
+<p>The ARIMA model produced the best results when compared to the results
+obtained by the Neural Networks. I believe that, in a real life
+application, with more data and using the scientific method, the Neural
+Network model would be able to outperform the ARIMA model.</p>
+<p>Other non-trivial models could be considered for this study that have
+been applied to Time Series with great results, such as Random Forests.
+Nonetheless, the data size should be increased for such a study to be
+relevant and less biased.</p>
+<p>Traditional methods, as discussed previously, are not good candidates
+for this study since the Trend is a non-conforming one. Holt-Winters is
+not an option given that it is exclusively applied to univariate time
+series, which is not the case for this time series.</p>
+
+</div>
+
+
+
+
+
+                
+                <div class="container">
+    <hr>
+</div>
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+                <div class="section" id="footer">
+    <div class="container has-text-centered">
+    
+        Personal portfolio developed by myself using <a href="https://gohugo.io/"><strong>Hugo</strong></a> with <a href="https://themes.gohugo.io/hugo-theme-introduction/"><strong>Introduction</strong></a> theme.
+    
+    </div>
+</div>
+
+                
+            </div>
+        </section>
+        
+        
+
+
+<script src="/js/bundle.f6c977229f84ae8df89c8647befcf3a170b8157f180a3f0afa4620b19a336994.js" integrity="sha256-9sl3Ip&#43;Ero34nIZHvvzzoXC4FX8YCj8K&#43;kYgsZozaZQ="></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-SYT5M0PET4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+        
+        
+        
+        
+    </body>
+</html>

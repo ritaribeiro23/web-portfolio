@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Adventures on Rita E. Ribeiro</title>
+    <title>Projects on Rita E. Ribeiro</title>
     <link>/projects/</link>
-    <description>Recent content in Data Adventures on Rita E. Ribeiro</description>
+    <description>Recent content in Projects on Rita E. Ribeiro</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 14 Apr 2021 20:12:51 +0100</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Visualization</title>
+      <link>/projects/photography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/photography/</guid>
+      <description>Under development</description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/projects/design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/design/</guid>
+      <description>Bellow there are some of my Data Science Projects that I share here on my Blog:
+Time Series Analysis e-Commerce Time-Series Analysis Part 1: Intro and Exploratory Data Analysis e-Commerce Time-Series Analysis Part 2: Forecast Sales using Classical Models e-Commerce Time-Series Analysis Part 3: Forecast Sales using ARIMA and SARIMA Models Multivariate Time Series Analysis  </description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/projects/writing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/writing/</guid>
+      <description>Under development</description>
+    </item>
+    
   </channel>
 </rss>

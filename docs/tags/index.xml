@@ -5,6 +5,43 @@
     <link>/tags/</link>
     <description>Recent content in Tags on Rita E. Ribeiro</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2019 16:18:12 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis</title>
+      <link>/tags/analysis/</link>
+      <pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate>
+      
+      <guid>/tags/analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analytics</title>
+      <link>/tags/analytics/</link>
+      <pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate>
+      
+      <guid>/tags/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>/tags/data/</link>
+      <pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate>
+      
+      <guid>/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TimeSeries</title>
+      <link>/tags/timeseries/</link>
+      <pubDate>Fri, 01 Nov 2019 16:18:12 +0100</pubDate>
+      
+      <guid>/tags/timeseries/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
