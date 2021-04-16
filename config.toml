@@ -94,16 +94,7 @@ googleAnalytics                 = "G-SYT5M0PET4"                     # https://g
         title            = "Rita E. Ribeiro"
         [languages.en.params]
             description  = "Rita E. Ribeiro | Data Science & Advanced Analytics"   # Max 160 characters show in search results
-            footerText   = "Personal portfolio developed by myself using [**Hugo**](https://gohugo.io/) with [**Introduction**](https://themes.gohugo.io/hugo-theme-introduction/) theme."                      # Text to override default footer text (markdown allowed)
+            footerText   = "Personal portfolio developed using [**Hugo**](https://gohugo.io/) with [**Introduction**](https://themes.gohugo.io/hugo-theme-introduction/) theme."                      # Text to override default footer text (markdown allowed)
 
-   # [languages.pt]
-   #     languageName     = "Português"
-   #     languageCode     = "pt"
-   #     contentDir       = "content/pt"
-   #     weight           = 1
-   #     title            = "Rita E. Ribeiro"
-   #     [languages.pt.params]
-   #         description  = "Rita E. Ribeiro | Data Science & Advanced Analytics"
-   #         # footerText   = ""
 
 
