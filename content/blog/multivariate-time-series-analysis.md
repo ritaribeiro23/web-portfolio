@@ -3,6 +3,7 @@ date: "2019-11-01T16:18:12+01:00"
 description: A small blog post about Multivariate Time Series Analysis
 publishDate: "2019-11-01T16:18:12+01:00"
 title: Multivariate Time Series Analysis
+tags: ["Analysis", "Data", "TimeSeries", "Analytics"]
 ---
 Last year I was challenged to solve a small multivarite time-series problem as a recruitment exercise.
 Even though I wasn't picked for the position, I had so much fun preparing this document that I decided to share it on my blog. 
@@ -50,7 +51,7 @@ graphically:
 
 #### **Sales VS Price**
 
-![img_1](/figure-markdown_strict/salesVSprices-1.png)
+![img_1](/blog/images/figure-markdown_strict/salesVSprices-1.png)
 
 ``` R
     cor(df_Sales[, 3], df_Sales[, 4])
@@ -64,7 +65,7 @@ extrapolate correlation between these two variables.
 
 #### **Price VS Promotion**
 
-![](/figure-markdown_strict/pricesVSpromotions-1.png)
+![](/blog/images/figure-markdown_strict/pricesVSpromotions-1.png)
 
 ```R
 cor(df_Sales[, 4], df_Sales[, 6])
@@ -111,7 +112,7 @@ monthplot(ts_sales,
         xlab = 'Month')
 ```
 
-![](/figure-markdown_strict/s_plot-1.png)
+![](/blog/images/figure-markdown_strict/s_plot-1.png)
 
 It is very obvious to observe peaks of sales usually occur during April
 and November, and the lowest sales occur during February and June.
@@ -140,7 +141,7 @@ plot(decompose(log(ts_sales), type="multiplicative")$seasonal,
      ylab='')
 ```
 
-![](/figure-markdown_strict/Season_plots-1.png)
+![](/blog/images/figure-markdown_strict/Season_plots-1.png)
 
 Given that the Additive Model is the one which explains the models with
 the least transforms, I will safely proceed my study with this
@@ -157,7 +158,7 @@ plot(decompose(ts_sales, type="additive")$trend,
      ylab='')
 ```
 
-![](/figure-markdown_strict/trend-1.png)
+![](/blog/images/figure-markdown_strict/trend-1.png)
 
 It is not clear to assume an increasing Trend (even if the most recent
 values show so). Further exploration on stationarity will be necessary,
@@ -190,7 +191,7 @@ pacf(ts_sales,
      main="b) Sample PACF for the Sales time series",
      lag.max = 48)
 ```
-![](/figure-markdown_strict/stationarity-1.png)
+![](/blog/images/figure-markdown_strict/stationarity-1.png)
 
 ```R
 adf.test(ts_sales, alternative='s')
@@ -370,7 +371,7 @@ qqnorm(fit1$residuals,
     main="c) QQPlot for residuals for the predicted model")
 qqline(fit1$residuals)
 ```
-![](/figure-markdown_strict/residuals-1.png)
+![](/blog/images/figure-markdown_strict/residuals-1.png)
 
 The model also passes this test, with a stable ACF (near zero for higher
 lags) and no noticeable tails in the QQPlot.
@@ -405,7 +406,7 @@ Using MAPE as a global marker, I can assume that this forecast is a
 reasonably good - slightly above 20 and clearly below 50 - which, in
 turn, validates the chosen model.
 
-![](/figure-markdown_strict/arima_model_plot-1.png)
+![](/blog/images/figure-markdown_strict/arima_model_plot-1.png)
 
 #### **Forecasting**
 
@@ -521,7 +522,7 @@ forecasting (around 20 in the test set), which doesn't fall too behind
 the ARIMA model constructed before. Since this is a good model, I will
 be using it for forecasting.
 
-![](/figure-markdown_strict/nn_plot-1.png)
+![](/blog/images/figure-markdown_strict/nn_plot-1.png)
 
 #### **Forecasting**
 ```R

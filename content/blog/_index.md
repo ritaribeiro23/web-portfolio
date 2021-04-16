@@ -1,6 +1,5 @@
 ---
-description: Blog
-title: Blog
+title: "Blog"
+weight: 40
 ---
 
-Here I share some small Data Science projects that I enjoy completing in my free time and help me learn new concepts along the way.
