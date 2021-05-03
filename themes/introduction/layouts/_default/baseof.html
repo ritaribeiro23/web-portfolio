@@ -4,7 +4,7 @@
         {{ block "head" . }}
         {{ partial "head/metadata.html" . }}
         {{ if .Site.Params.plausible }}{{ partial "head/plausible.html" . }}{{ end }}
-        {{ if .Site.Params.GoogleAnalyticsID }}{{ partial "analytics-gtag.html" . }}{{ end }}
+        {{ partial "head/analytics-gtag.html" . }}
         {{ partial "head/openGraph.html" . }}
         {{ partial "head/favicons.html" . }}
         {{ partial "head/css.html" . }}
