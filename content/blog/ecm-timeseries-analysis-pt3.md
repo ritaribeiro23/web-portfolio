@@ -3,6 +3,7 @@ date: "2020-11-05T20:00:00+01:00"
 description: Seasonal ARIMA models for e-Commerce Sales Prediction 
 publishDate: "2020-11-05T20:00:00+01:00"
 title: 'e-Commerce Time-Series Analysis Part 3: Forecast Sales using Seasonal ARIMA Models'
+socialImage: /blog/images/mpst/image51.png
 ---
 
 Hi there, thanks for being back again!
